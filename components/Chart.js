@@ -14,21 +14,15 @@ import {
   ChartYLabel,
 } from "@rainbow-me/animated-charts";
 import { useSharedValue } from "react-native-reanimated";
-import { withTheme } from "react-native-elements";
 
 export const { width: SIZE } = Dimensions.get("window");
 
 const Chart = ({ price, logo, shortName, priceChange, sparkline, name }) => {
   const latestCurrentPrice = useSharedValue(price);
-  const [chartReady, setChartReady] = useState(false);
   const changeColor = priceChange > 0 ? "green" : "red";
 
   useEffect(() => {
     latestCurrentPrice.value = price;
-
-    setTimeout(() => {
-      setChartReady(true);
-    }, 0);
   }, [price]);
 
   const formatUSD = (value) => {
@@ -41,10 +35,7 @@ const Chart = ({ price, logo, shortName, priceChange, sparkline, name }) => {
       return formattedValue;
     }
 
-    const formattedValue = `${parseFloat(value)
-      .toFixed(2)
-      .replace(/\d(?=(\d{3})+\.)/g, "$&,")}$`;
-
+    const formattedValue = `${parseFloat(value).toFixed(2)}`;
     return formattedValue;
   };
 
