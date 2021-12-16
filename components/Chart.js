@@ -36,14 +36,14 @@ const Chart = ({ price, logo, shortName, priceChange, sparkline, name }) => {
     if (value === "") {
       const formattedValue = `${latestCurrentPrice.value.toLocaleString(
         "en-US",
-        { currency: "EUR" }
-      )}€`;
+        { currency: "USD" }
+      )}$`;
       return formattedValue;
     }
 
     const formattedValue = `${parseFloat(value)
       .toFixed(2)
-      .replace(/\d(?=(\d{3})+\.)/g, "$&,")}€`;
+      .replace(/\d(?=(\d{3})+\.)/g, "$&,")}$`;
 
     return formattedValue;
   };

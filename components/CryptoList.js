@@ -22,11 +22,11 @@ const CryptoList = ({ shortName, name, price, priceChange, logo, onPress }) => {
 
         <View style={styles.rightContainer}>
           <Text style={styles.title}>
-            {price.toLocaleString("de-DE", {
+            {price.toLocaleString("en-US", {
               style: "currency",
-              currency: "EUR",
+              currency: "USD",
             })}
-            €
+            $
           </Text>
           <Text style={(styles.subtitle, { color: changeColor })}>
             {priceChange.toFixed(2)}%
