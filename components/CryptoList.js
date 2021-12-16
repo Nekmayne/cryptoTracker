@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 
-const CryptoList = ({ symbol, name, price, priceChange, logo, onPress }) => {
+const CryptoList = ({ shortName, name, price, priceChange, logo, onPress }) => {
   const changeColor = priceChange > 0 ? "green" : "red";
 
   return (
@@ -14,9 +14,9 @@ const CryptoList = ({ symbol, name, price, priceChange, logo, onPress }) => {
             }}
             style={styles.image}
           />
-          <View style={styles.nameContainer}>
+          <View>
             <Text style={styles.title}>{name}</Text>
-            <Text style={styles.subtitle}>{symbol.toUpperCase()}</Text>
+            <Text style={styles.subtitle}>{shortName.toUpperCase()}</Text>
           </View>
         </View>
 
@@ -56,7 +56,6 @@ const styles = StyleSheet.create({
   rightContainer: {
     alignItems: "flex-end",
   },
-  nameContainer: {},
   title: {
     fontSize: 18,
     marginLeft: 5,

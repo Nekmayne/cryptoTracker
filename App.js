@@ -14,6 +14,7 @@ import {
   BottomSheetModal,
   BottomSheetModalProvider,
 } from "@gorhom/bottom-sheet";
+import { getMarketData } from "./components/Api";
 
 export default function App() {
   const [data, setData] = useState([]);
@@ -29,16 +30,11 @@ export default function App() {
   };
 
   useEffect(() => {
-    const getMarketData = () => {
-      fetch(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=25&page=1&sparkline=true&price_change_percentage=7d"
-      )
-        .then((response) => response.json())
-        .then((responseJson) => {
-          setData(responseJson);
-        });
+    const fetchMarketData = async () => {
+      const marketData = await getMarketData();
+      setData(marketData);
     };
-    getMarketData();
+    fetchMarketData();
   }, []);
 
   return (
@@ -58,7 +54,7 @@ export default function App() {
             data={data}
             renderItem={({ item }) => (
               <CryptoList
-                symbol={item.symbol}
+                shortName={item.symbol}
                 name={item.name}
                 price={item.current_price}
                 logo={item.image}
@@ -78,7 +74,7 @@ export default function App() {
                 price={selectedCoinData.current_price}
                 logo={selectedCoinData.image}
                 name={selectedCoinData.name}
-                symbol={selectedCoinData.symbol}
+                shortName={selectedCoinData.symbol}
                 priceChange={selectedCoinData.price_change_percentage_24h}
                 sparkline={selectedCoinData.sparkline_in_7d.price}
               />
