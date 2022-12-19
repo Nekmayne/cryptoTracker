@@ -12,10 +12,10 @@ Expo
 
 Expo Link: https://expo.dev/@nekmayne/projects/cryptoTracker
 
-### View of different cryptos
+# Cryptolist view
 
 ![pic2](https://user-images.githubusercontent.com/75587191/208400062-103ee67d-c41c-48f3-8493-ffdf55600620.png)
 
-### View of tracking the past 7 days value of selected crypto
+# Track the value of selected crypto
 
 ![pic1](https://user-images.githubusercontent.com/75587191/208400056-8f08dfd7-50fe-448b-b164-c28306328f6b.png)
