@@ -1,4 +1,4 @@
-# cryptoTracker
+# CryptoTracker
 
 Technologies used: 
 
